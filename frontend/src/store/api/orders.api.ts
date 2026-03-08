@@ -24,7 +24,7 @@ type ICreatedOrderRes = {
 export const ordersApi = createApi({
   reducerPath: 'api/orders',
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_BASE_URL + import.meta.env.VITE_API_VERSION
+    baseUrl: '/api/v1'
   }),
   endpoints: (build) => ({
     getAllMineOrders: build.query<IAllUsersOrderData[], void>({

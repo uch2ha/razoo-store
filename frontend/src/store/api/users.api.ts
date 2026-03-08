@@ -5,7 +5,7 @@ import { getTokenFromLS } from '../../utilities/localStorage'
 export const usersApi = createApi({
   reducerPath: 'api/users',
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_BASE_URL + import.meta.env.VITE_API_VERSION + '/users'
+    baseUrl: '/api/v1/users'
   }),
   endpoints: (build) => ({
     getAllUsers: build.query<IUser[], void>({

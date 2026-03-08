@@ -8,7 +8,7 @@ import { IServerProduct } from '../../features/admin/components/products/AdminPr
 export const productsApi = createApi({
   reducerPath: 'api/products',
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_BASE_URL + import.meta.env.VITE_API_VERSION
+    baseUrl: '/api/v1'
   }),
   endpoints: (build) => ({
     getAllProducts: build.query<IProduct[], void>({

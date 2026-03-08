@@ -5,7 +5,7 @@ import { IAuthenticate, IRegister, IToken } from '../../types/authentication.typ
 export const authenticationApi = createApi({
   reducerPath: 'api/authentication',
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_BASE_URL + import.meta.env.VITE_API_VERSION + '/auth'
+    baseUrl: '/api/v1/auth'
   }),
   endpoints: (build) => ({
     register: build.mutation<IToken, IRegister>({
