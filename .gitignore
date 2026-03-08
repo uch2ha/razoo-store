@@ -3,6 +3,7 @@
 *.class
 out
 *GEMINI*
+*.env
 
 # Log file
 *.log
