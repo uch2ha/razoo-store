@@ -97,55 +97,55 @@ public class ProductController
     return new ResponseEntity<>(result, HttpStatus.OK);
   }
 
-  @GetMapping("/{productId}/product-image")
-  public ResponseEntity<Object> getProductImage(@PathVariable("productId") UUID productId
-  )
-  {
-    Optional<Product> existingProduct = productService.findById(productId);
-
-    if (existingProduct.isEmpty()) {
-      return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
-    }
-
-    Product product = existingProduct.get();
-
-    if (product.isFixedProduct()) {
-      byte[] image = productService.getFixedProductImage(product);
-      return new ResponseEntity<>(image, HttpStatus.OK);
-    }
-
-    if (product.getImg() == null) {
-      byte[] image = productService.getBasicProductImage(product);
-      return new ResponseEntity<>(image, HttpStatus.OK);
-    }
-
-    byte[] image = productService.getProductImage(product);
-    return new ResponseEntity<>(image, HttpStatus.OK);
-  }
-
-  @PostMapping(value = "/{productId}/product-image",
-          consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-  public ResponseEntity<Object> uploadProductImage(@PathVariable("productId") UUID productId,
-                                                   @RequestParam("file") MultipartFile file)
-  {
-    Optional<Product> existingProduct = productService.findById(productId);
-
-    if (existingProduct.isEmpty()) {
-      return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
-    }
-
-//    if (existingProduct.get().isFixedProduct()) {
-//      return new ResponseEntity<>("Fixed product's img cannot be changes", HttpStatus.NOT_FOUND);
+//  @GetMapping("/{productId}/product-image")
+//  public ResponseEntity<Object> getProductImage(@PathVariable("productId") UUID productId
+//  )
+//  {
+//    Optional<Product> existingProduct = productService.findById(productId);
+//
+//    if (existingProduct.isEmpty()) {
+//      return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
 //    }
-    Product product = existingProduct.get();
+//
+//    Product product = existingProduct.get();
+//
+//    if (product.isFixedProduct()) {
+//      byte[] image = productService.getFixedProductImage(product);
+//      return new ResponseEntity<>(image, HttpStatus.OK);
+//    }
+//
+//    if (product.getImg() == null) {
+//      byte[] image = productService.getBasicProductImage(product);
+//      return new ResponseEntity<>(image, HttpStatus.OK);
+//    }
+//
+//    byte[] image = productService.getProductImage(product);
+//    return new ResponseEntity<>(image, HttpStatus.OK);
+//  }
 
-    product.setFixedProduct(false);
-    productService.uploadProductImage(product, file);
-    
-    Map<String, String> result = new HashMap<>();
-    result.put("Success", "true");
-    return new ResponseEntity<>(result, HttpStatus.OK);
-  }
+//  @PostMapping(value = "/{productId}/product-image",
+//          consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+//  public ResponseEntity<Object> uploadProductImage(@PathVariable("productId") UUID productId,
+//                                                   @RequestParam("file") MultipartFile file)
+//  {
+//    Optional<Product> existingProduct = productService.findById(productId);
+//
+//    if (existingProduct.isEmpty()) {
+//      return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
+//    }
+//
+////    if (existingProduct.get().isFixedProduct()) {
+////      return new ResponseEntity<>("Fixed product's img cannot be changes", HttpStatus.NOT_FOUND);
+////    }
+//    Product product = existingProduct.get();
+//
+//    product.setFixedProduct(false);
+//    productService.uploadProductImage(product, file);
+//    
+//    Map<String, String> result = new HashMap<>();
+//    result.put("Success", "true");
+//    return new ResponseEntity<>(result, HttpStatus.OK);
+//  }
 
   // validation
   @ExceptionHandler(ConstraintViolationException.class)
