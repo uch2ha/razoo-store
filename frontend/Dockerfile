@@ -1,23 +1,21 @@
-# Use an official Node.js runtime as a parent image
-FROM node:16-alpine
+# build stage
+FROM node:16-alpine as build
 
-# Set the working directory to /app
 WORKDIR /frontend
 
-# Copy the package.json and yarn.lock files to the container
 COPY package.json yarn.lock ./
-
-# Install app dependencies
 RUN yarn install --frozen-lockfile
 
-# Copy the rest of the application code to the container
 COPY . .
-
-# Build the React app
 RUN yarn build
 
-# Expose the app's port
+# production stage
+FROM nginx:stable-alpine as production
+
+COPY --from=build /frontend/dist /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 5173
 
-# Start the app
-CMD ["yarn", "dev"]
+CMD ["nginx", "-g", "daemon off;"]
