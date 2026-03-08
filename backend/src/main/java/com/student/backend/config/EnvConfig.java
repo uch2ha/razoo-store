@@ -1,27 +1,27 @@
-package com.student.backend.config;
+// package com.student.backend.config;
 
-import io.github.cdimascio.dotenv.Dotenv;
-import org.springframework.stereotype.Component;
+// import io.github.cdimascio.dotenv.Dotenv;
+// import org.springframework.stereotype.Component;
 
-@Component
-public class EnvConfig
-{
-  private static final EnvConfig instance = new EnvConfig();
+// @Component
+// public class EnvConfig
+// {
+//   private static final EnvConfig instance = new EnvConfig();
 
-  public static EnvConfig getConfig()
-  {
-    return instance;
-  }
+//   public static EnvConfig getConfig()
+//   {
+//     return instance;
+//   }
 
-  private Dotenv env;
+//   private Dotenv env;
 
-  public EnvConfig()
-  {
-    this.env = Dotenv.configure().directory("./backend/").ignoreIfMissing().load();
-  }
+//   public EnvConfig()
+//   {
+//     this.env = Dotenv.configure().directory("./backend/").ignoreIfMissing().load();
+//   }
 
-  public String get(String variable)
-  {
-    return env.get(variable);
-  }
-}
+//   public String get(String variable)
+//   {
+//     return env.get(variable);
+//   }
+// }
