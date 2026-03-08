@@ -8,7 +8,8 @@ import { useAuthenticateMutation } from '../../../store/api/authentication.api'
 import { IAuthenticate, IToken } from '../../../types/authentication.type'
 import { setTokenToLS } from '../../../utilities/localStorage'
 import { IUser } from '../../../types'
-import GoogleAuthBtn from './GoogleAuthBtn'
+// import GoogleAuthBtn from './GoogleAuthBtn'
+// import GoogleAuthBtn from './GoogleAuthBtn'
 import { handleTokenDecode } from '../utilities/handleToken'
 import { Id, toast } from 'react-toastify'
 
@@ -102,7 +103,7 @@ const LogInForm: FC = () => {
     <div className="w-full h-full flex flex-col justify-center items-center ">
       <h2 className="font-garamond text-[50px] mb-1">Login to Your Account</h2>
       <h4>using social networks</h4>
-      <GoogleAuthBtn setError={setError} />
+      {/* <GoogleAuthBtn setError={setError} /> */}
       <p>OR</p>
       {error && <h3 className="text-red-600 font-bold py-2 ">{error}</h3>}
       <input

@@ -2,6 +2,8 @@
 # Compiled class file
 *.class
 out
+*GEMINI*
+*.env
 
 # Log file
 *.log

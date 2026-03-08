@@ -1,7 +1,5 @@
 package com.student.backend.product;
 
-import com.student.backend.s3.S3Buckets;
-import com.student.backend.s3.S3Service;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -18,8 +16,8 @@ import java.util.UUID;
 public class ProductService
 {
   private final ProductRepository productRepo;
-  private final S3Service s3;
-  private final S3Buckets s3Buckets;
+  // private final S3Service s3;
+  // private final S3Buckets s3Buckets;
 
   public List<Product> findAll()
   {
@@ -47,43 +45,43 @@ public class ProductService
     return productRepo.save(product);
   }
 
-  public byte[] getProductImage(Product product)
-  {
-    return s3.getObject(
-            s3Buckets.getBucket(),
-            "product-images/news/%s/%s".formatted(product.getProductId(),
-                    product.getImg()));
-  }
+  // public byte[] getProductImage(Product product)
+  // {
+  //   return s3.getObject(
+  //           s3Buckets.getBucket(),
+  //           "product-images/news/%s/%s".formatted(product.getProductId(),
+  //                   product.getImg()));
+  // }
 
-  public byte[] getFixedProductImage(Product product)
-  {
-    return s3.getObject(
-            s3Buckets.getBucket(),
-            "product-images/fixed/%s/%s".formatted(product.getProductId(),
-                    product.getImg()));
-  }
+  // public byte[] getFixedProductImage(Product product)
+  // {
+  //   return s3.getObject(
+  //           s3Buckets.getBucket(),
+  //           "product-images/fixed/%s/%s".formatted(product.getProductId(),
+  //                   product.getImg()));
+  // }
 
-  public byte[] getBasicProductImage(Product product)
-  {
-    return s3.getObject(
-            s3Buckets.getBucket(),
-            "product-images/%s/%s".formatted(product.getCategory(),
-                    product.getCategory()));
-  }
+  // public byte[] getBasicProductImage(Product product)
+  // {
+  //   return s3.getObject(
+  //           s3Buckets.getBucket(),
+  //           "product-images/%s/%s".formatted(product.getCategory(),
+  //                   product.getCategory()));
+  // }
 
-  public void uploadProductImage(Product product, MultipartFile file)
-  {
-    UUID productImgId = UUID.randomUUID();
-    try {
-      s3.putObject(s3Buckets.getBucket(),
-              "product-images/news/%s/%s".formatted(product.getProductId(), productImgId),
-              file.getBytes());
+  // public void uploadProductImage(Product product, MultipartFile file)
+  // {
+  //   UUID productImgId = UUID.randomUUID();
+  //   try {
+  //     s3.putObject(s3Buckets.getBucket(),
+  //             "product-images/news/%s/%s".formatted(product.getProductId(), productImgId),
+  //             file.getBytes());
 
-      product.setImg(productImgId);
+  //     product.setImg(productImgId);
 
-      productRepo.save(product);
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-  }
+  //     productRepo.save(product);
+  //   } catch (IOException e) {
+  //     throw new RuntimeException(e);
+  //   }
+  // }
 }
