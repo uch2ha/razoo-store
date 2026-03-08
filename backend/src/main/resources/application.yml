@@ -7,7 +7,7 @@ spring:
   
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
@@ -22,10 +22,9 @@ spring:
   devtools:
     remote:
       secret: mysecret
-  #  sql:
-  #    init:
-  #      mode: always
-  #      data-locations: classpath:users.sql, classpath:products.sql, classpath:orders.sql
+  sql:
+    init:
+      mode: always
   config:
     import: optional:file:./backend/.env[.properties]
   servlet:
@@ -33,17 +32,17 @@ spring:
       max-file-size: 10MB
       max-request-size: 10MB
 
-aws:
-  region: eu-north-1
-  accessKeyId: ${AWS_ACCESS_KEY_ID}
-  secretKey: ${AWS_SECRET_ACCESS_KEY}
+# aws:
+#   region: eu-north-1
+#   accessKeyId: ${AWS_ACCESS_KEY_ID}
+#   secretKey: ${AWS_SECRET_ACCESS_KEY}
 
-  s3:
-    buckets:
-      bucket: razoo-store
+#   s3:
+#     buckets:
+#       bucket: razoo-store
 
-cronJob:
-  wakeup: ${SERVER_URL}
+# cronJob:
+#   wakeup: ${SERVER_URL}
 
 #logging:
 #  level:
