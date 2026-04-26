@@ -19,20 +19,20 @@ https://razoo-store.netlify.app
 
 <!-- ICONS found at: ht<rtps://github.com/devicons/devicon/tree/master/icons -->
 <!-- https://seeklogo.com/vector-logo/428028/github-actions -->
-<div> 
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original-wordmark.svg" title="SB" alt="SB" width="50" height="50"/>&nbsp;
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="50" height="50"/>&nbsp;
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" title="TS" alt="TS" width="50" height="50"/>&nbsp;
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" title="Redux" alt="Redux" width="50" height="50"/>&nbsp;
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" title="Docker" alt="Docker" width="50" height="50"/>&nbsp;
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" title="PSQL" alt="PSQL" width="50" height="50"/>&nbsp;
-      <img src="https://seeklogo.com/images/A/aws-s3-simple-storage-service-logo-B280D33C1B-seeklogo.com.png" title="AWS S3" alt="AWS S3" width="50" height="50"/>&nbsp;
-      <img src="https://seeklogo.com/images/V/vitest-logo-9ADDA575A5-seeklogo.com.png" title="Vitest" alt="Vitest" width="50" height="50"/>&nbsp;
-      <img src="https://seeklogo.com/images/G/github-actions-logo-031704BDC6-seeklogo.com.png" title="GitActions" alt="GitActions" width="50" height="50"/>&nbsp;
-      <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original-wordmark.svg" title="Tailwind" alt="Tailwind" width="50" height="50"/>&nbsp;
-      
-</div>
-<br>
+<table>
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original-wordmark.svg" title="SB" alt="SB" width="50" height="50"/></td>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="50" height="50"/></td>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" title="TS" alt="TS" width="50" height="50"/></td>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" title="Redux" alt="Redux" width="50" height="50"/></td>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" title="Docker" alt="Docker" width="50" height="50"/></td>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" title="PSQL" alt="PSQL" width="50" height="50"/></td>
+    <td><img src="https://seeklogo.com/images/A/aws-s3-simple-storage-service-logo-B280D33C1B-seeklogo.com.png" title="AWS S3" alt="AWS S3" width="50" height="50"/></td>
+    <td><img src="https://seeklogo.com/images/V/vitest-logo-9ADDA575A5-seeklogo.com.png" title="Vitest" alt="Vitest" width="50" height="50"/></td>
+    <td><img src="https://seeklogo.com/images/G/github-actions-logo-031704BDC6-seeklogo.com.png" title="GitActions" alt="GitActions" width="50" height="50"/></td>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original-wordmark.svg" title="Tailwind" alt="Tailwind" width="50" height="50"/></td>
+  </tr>
+</table>
 
 - The application combines React and Spring Boot, utilizing TypeScript for enhanced development.
 
