@@ -1,7 +1,7 @@
-version: '3.1'
+name: razoo-store
+
 services:
   db:
-    container_name: db
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -12,7 +12,6 @@ services:
     restart: unless-stopped
 
   backend:
-    container_name: backend
     build:
       context: ./backend/
       dockerfile: Dockerfile
@@ -28,7 +27,6 @@ services:
     restart: unless-stopped
 
   frontend:
-    container_name: frontend
     build:
       context: ./frontend/
       dockerfile: Dockerfile
