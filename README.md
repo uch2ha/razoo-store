@@ -3,7 +3,7 @@
 I embarked on this project with the goal of expanding my skills in Java Spring Boot, Redux Toolkit, RTK Query, PostgreSQL, and Tailwind CSS.
 By working on this application, I aimed to strengthen my proficiency in React and TypeScript while gaining hands-on experience with Docker for efficient containerization. Throughout this project, I have gained valuable experience and knowledge that I am eager to apply in my future full-stack applications. It has been a rewarding journey, and I am excited to utilize the expertise I have acquired to deliver exceptional solutions.
 
-https://razoo-store.netlify.app
+https://razoo-store.uch2ha.dev/
 
 ## Sections
 
