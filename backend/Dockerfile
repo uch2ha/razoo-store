@@ -17,7 +17,7 @@ COPY src src
 RUN mvn package -DskipTests
 
 # Use a base image that includes Java
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:17-jre-jammy
 
 # Set the working directory in the container
 WORKDIR /backend
