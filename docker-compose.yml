@@ -1,7 +1,7 @@
-version: '3.1'
+name: razoo-store
+
 services:
   db:
-    container_name: db
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -10,9 +10,11 @@ services:
     ports:
       - '${DB_PORT}:5432'
     restart: unless-stopped
+    cpus: 0.25
+    mem_limit: 256m
+    shm_size: 128m
 
   backend:
-    container_name: backend
     image: ghcr.io/uch2ha/razoo-store/backend:latest
     ports:
       - '8080:8080'
@@ -23,14 +25,17 @@ services:
       - SPRING_DATASOURCE_USERNAME=${SPRING_DATASOURCE_USERNAME}
       - SPRING_DATASOURCE_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
       - JWT_SECRET=${JWT_SECRET}
+      - JAVA_TOOL_OPTIONS=-XX:MaxRAMPercentage=60 -XX:InitialRAMPercentage=20
     restart: unless-stopped
+    cpus: 0.25
+    mem_limit: 768m
 
   frontend:
-    container_name: frontend
     image: ghcr.io/uch2ha/razoo-store/frontend:latest
     ports:
       - '5173:80'
     depends_on:
       - backend
     restart: unless-stopped
-
+    cpus: 0.15
+    mem_limit: 128m
