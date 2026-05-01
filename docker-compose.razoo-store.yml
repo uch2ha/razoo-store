@@ -40,7 +40,8 @@ services:
     networks:
       - app
 
-  nginx:
+  razoo-store-nginx:
+    container_name: razoo-store-nginx
     image: ghcr.io/uch2ha/razoo-store/nginx:latest
     depends_on:
       - backend
@@ -50,10 +51,11 @@ services:
     mem_limit: 128m
     networks:
       - app
-      # - proxy
+      - proxy
 
+ 
 networks:
   app:
     internal: true
-  # proxy:
-  #   external: true
+  proxy:
+    external: true
