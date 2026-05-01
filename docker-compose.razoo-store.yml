@@ -7,17 +7,15 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
-    ports:
-      - '${DB_PORT}:5432'
     restart: unless-stopped
     cpus: 0.25
     mem_limit: 256m
     shm_size: 128m
+    networks:
+      - app
 
   backend:
     image: ghcr.io/uch2ha/razoo-store/backend:latest
-    ports:
-      - '8080:8080'
     depends_on:
       - db
     environment:
@@ -29,13 +27,33 @@ services:
     restart: unless-stopped
     cpus: 0.25
     mem_limit: 768m
+    networks:
+      - app
 
   frontend:
     image: ghcr.io/uch2ha/razoo-store/frontend:latest
-    ports:
-      - '5173:80'
     depends_on:
       - backend
     restart: unless-stopped
     cpus: 0.15
     mem_limit: 128m
+    networks:
+      - app
+
+  nginx:
+    image: ghcr.io/uch2ha/razoo-store/nginx:latest
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped
+    cpus: 0.10
+    mem_limit: 128m
+    networks:
+      - app
+      # - proxy
+
+networks:
+  app:
+    internal: true
+  # proxy:
+  #   external: true
